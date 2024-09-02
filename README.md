@@ -10,7 +10,7 @@
 
 ## Entry Point
 
-[./latex-template](./latex-template) follows the same pipeline. The main PDF file `main.pdf` is created with the main entry point `main.tex`. In order to add book spine on the cover page, the second entry point `main2.tex` is used to generate `main2.pdf`. However, the `main2.pdf` does not have any of the hyperlink originally presented in `main.pdf` with this approach.
+In [./latex-template](./latex-template), the main PDF file `main.pdf` is created with the main entry point `main.tex`. In order to add book spine on the cover page, the second entry point `main2.tex` is used to generate `main2.pdf`. However, the `main2.pdf` does not have any of the hyperlink originally presented in `main.pdf` with this approach.
 
 ## Environment and Compilation
 
