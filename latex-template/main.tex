@@ -1,0 +1,160 @@
+\documentclass[hidelinks,12pt,a4paper]{article}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{graphicx} % Required for inserting images
+\usepackage{sectsty} % for section name format in center
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{amsmath} % \eqref
+\usepackage[labelsep=space]{caption} % Figure n: xxx -> Figure n xxx
+\usepackage{subcaption} % instead of subfig
+\usepackage{csquotes} % proper single and double quotes \enquote \enquote*
+\usepackage{indentfirst} % overwrite default indentation setting to be true on first paragraph in each section
+
+% --- publication page reference ---
+\usepackage{bibentry}
+
+% --- custom counting ---
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\counterwithin{equation}{section}
+
+% --- custom cmd for code ---
+% https://tex.stackexchange.com/questions/286094/insert-code-keywords-inline
+\usepackage{xcolor}
+\usepackage{listings} % \lstinline
+\usepackage{xparse} % \codeword
+\NewDocumentCommand{\codeword}{v}{%
+\texttt{\textcolor{blue}{#1}}%
+}
+
+% --- escape special characters in lstlisting ---
+% https://tex.stackexchange.com/questions/197507/listings-escapeinside-option-is-not-working-for-me
+% required for \begin{lstlisting} environment
+%\lstset{
+%    escapeinside={(*@}{@*)},          % if you want to add LaTeX within your code
+%}
+
+% --- algorithm bloc ---
+% https://tex.stackexchange.com/questions/313507/autoref-for-algorithms
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\newcommand{\algorithmautorefname}{Algorithm}
+
+% --- change autoref displaying text ---
+% https://tex.stackexchange.com/questions/142687/customize-of-autoref
+\renewcommand{\figureautorefname}{Fig.}
+%\renewcommand{\tableautorefname}{Tab.}
+%\renewcommand{\equationautorefname}{Eq.}
+%\renewcommand{\algorithmautorefname}{Alg.}
+
+% --- multiple reference ---
+% https://tex.stackexchange.com/questions/20698/reference-multiple-subfloated-figures-using-refx-y-z-to-give-fig-1a-1b-1c-in
+% https://tex.stackexchange.com/questions/144759/how-to-modify-the-label-output-in-cleveref-and-varioref
+% https://ctan.mirror.twds.com.tw/tex-archive/macros/latex/contrib/cleveref/cleveref.pdf
+% https://tex.stackexchange.com/questions/381119/how-to-make-a-range-reference-use-an-en-dash
+\usepackage{cleveref}
+\newcommand{\crefrangeconjunction}{--} % use hyphon between 3 or more items like "Fig. 1.6-1.8" not "Fig. 1.6 to 1.8"
+\crefname{figure}{Fig.}{Fig.}
+
+% --- keyword command in abstrace ---
+% https://tex.stackexchange.com/questions/508107/lines-abstract-keyword
+\newcommand\keywords{%
+\noindent\\\textbf{Keywords:}\ }
+\newcommand\keywordscn{%
+\noindent\\\textbf{關鍵字：}\ }
+
+% --- citing author ---
+% https://tex.stackexchange.com/questions/69379/how-do-i-cite-author-in-latex
+% https://www.overleaf.com/learn/latex/Bibliography_management_with_natbib
+% https://tex.stackexchange.com/questions/61877/natbib-sorting-and-citation-order-by-appearance
+\usepackage[square,numbers]{natbib}
+% \bibliographystyle{unsrtnat} is required
+% \bibliographystyle{unsrt} is too old for this use
+% \bibliographystyle{abbrvnat} doesn't generate citation in the order of appearance
+
+% --- special characters ---
+% https://en.wikibooks.org/wiki/LaTeX/Special_Characters
+\usepackage{pifont}
+
+% --- merge table rows ---
+% https://tex.stackexchange.com/questions/72945/how-to-merge-cells-vertically
+\usepackage{multirow}
+
+% --- nth ---
+% https://tex.stackexchange.com/questions/4118/whats-the-quickest-way-to-write-2nd-3rd-etc-in-latex
+\usepackage[super]{nth}
+
+% --- line wrap for hyperlink ---
+% https://tex.stackexchange.com/questions/3033/forcing-linebreaks-in-url
+\usepackage{xurl}
+
+% --- include SVG graph ---
+% https://tex.stackexchange.com/questions/2099/how-to-include-svg-diagrams-in-latex
+%\usepackage{svg} % difficult to work with
+% https://graphicdesign.stackexchange.com/questions/5880/how-to-export-an-inkscape-svg-file-to-a-pdf-and-maintain-the-integrity-of-the-im
+
+% --- font setting ---
+% https://tw.mirrors.cicku.me/ctan/macros/xetex/latex/xecjk/xeCJK.pdf
+\usepackage{xeCJK} % make languages supported by CJK available with font settings using this option requires to compile with XeLaTeX not pdfLaTeX, more specifically, use `XeLaTeX+MakeIndex+BibTeX` in MiKTeX
+\setmainfont{Times New Roman} % for English font
+\setCJKmainfont{DFKai-SB} % for Chinese font, affect \rmfamily and \textrm
+\setCJKsansfont{DFKai-SB} % affect \sffamily and \textsf
+\setCJKmonofont{DFKai-SB} % affect \ttfamily and \texttt
+
+% --- page setting ---
+\usepackage{wallpaper} % for watermark
+
+% --- for layout setting ---
+% https://tex.stackexchange.com/a/60218
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+            {-2.5ex\@plus -1ex \@minus -.25ex}%
+            {1.25ex \@plus .25ex}%
+            {\normalfont\normalsize\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4}    % how many sectioning levels to show in ToC
+
+% --- default dimensions ---
+\textwidth      = 137.0mm
+\textheight     = 224.0mm
+\topmargin      =  -3.0mm
+\headheight     =   0.0mm
+\headsep        =  10.0mm
+\footskip       =   8.0mm
+\oddsidemargin  =  10.6mm
+\evensidemargin =  10.6mm
+\hoffset = -0.2cm
+
+% --- margin setting ---
+\usepackage{geometry}
+\geometry{
+    left=3cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+}
+
+\begin{document}
+\input{cover.tex}
+
+\CenterWallPaper{.35}{../figure/watermark.jpg} % put on the first page you want to have watermark
+\pagenumbering{Roman} % use capital Roman number for pagenumbering 
+\input{abstract_Chinese.tex}
+\input{abstract_English.tex}
+\input{ack.tex}
+\input{toc.tex}
+\input{lof.tex}
+\input{lot.tex}
+
+\pagenumbering{arabic} % use arabic number for pagenumbering
+\input{introduction.tex}
+%\input{thesis/pagenumber/pagenumber.tex}
+\input{appendix.tex}
+\input{reference.tex}
+
+\end{document}
