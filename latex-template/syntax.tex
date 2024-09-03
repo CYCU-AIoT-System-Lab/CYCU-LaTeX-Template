@@ -78,10 +78,70 @@ To embed a downloaded figure or figure created with external tools mentioned in 
 To use TikZ in \LaTeX, visit the Minimal Working Example (MWE) example page \cite{tikz_example}. Additional packages will be needed and should be added in the \texttt{main.tex} file.
 
 \subsection{Table}
-% - table generator https://www.tablesgenerator.com/
-% - combine rows
-% - combine columns
+
+A basic version of \LaTeX\ two by two table with custom border is shown in \autoref{table:tab1}; another table with specific column and row name is shown in \autoref{table:tab2}; an additional table with merged rows and columns is shown in \autoref{table:tab3}.
+
+\begin{center}
+    \captionof{table}{Basic table.}
+    \label{table:tab1}
+    \begin{tabular}{ c | c }
+        \hline
+        cell & cell \\
+        cell & cell \\
+        \hline
+    \end{tabular}
+\end{center}
+
+
+\begin{center}
+    \captionof{table}{Table with column and row names.}
+    \label{table:tab2}
+    \begin{tabular}{ c | c c }
+        \toprule
+         & Column A & Column B \\
+        \midrule
+        Row 1 & cell & cell \\
+        Row 2 & cell & cell \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \captionof{table}{Table with merged rows and columns.}
+    \label{table:tab3}
+    \begin{tabular}{ c | c c }
+        \toprule
+         & Column A & Column B \\
+        \midrule
+        \multirow[t]{2}{*}{Row 1-2} & cell & cell \\
+                                    & \multicolumn{2}{c}{merged cell} \\
+        Row 3 & cell & cell \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+If it is too confusing to edit the entire table manually, visit Table Generator for web-based Graphical User Interface (GUI) editor and copy the generated code into the document \cite{table_gen}.
+
 \subsection{Equation}
+
+When displaying math symbols, they can be used inline like $a+b=c$. As shwon in \autoref{eq:eq1}, it can be used to create complicated equations. It can use additional \enquote{aligned} environment to align multiple equations against certain location within equation with symbol $\&$, as shown in \autoref{eq:eq2}.
+
+\begin{equation}
+    a^2+b_1=\dfrac{\sum\limits^{m}_{n=1}c_n}{d}
+    \label{eq:eq1}
+\end{equation}
+
+
+\begin{equation}
+    \begin{aligned}
+        a_1+b&=c \\
+        \sqrt{d}&=c \\
+        d&=\int^e_fx^5dx+\alpha^{2^2}
+    \label{eq:eq2}
+    \end{aligned}
+\end{equation}
+
+
 \subsection{Algorithm}
 \subsection{Citation}
 % - bib file
