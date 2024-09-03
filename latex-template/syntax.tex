@@ -1,12 +1,46 @@
 \section{Syntax}
 
 \subsection{Text}
-% - font (tt, sf, italic)
-% - size
-% - link
-% - lists (enumerate, itemize, description, ...)
-% - code block
-% - special characters
+
+\begin{description}
+    \item[Font and size] \textbf{bold}, \textit{italic}, \texttt{typewriter} \cite{overleaf_font}.
+    \item[Links] \href{https://www.overleaf.com/learn/latex/Hyperlinks}{displaying text}, \url{https://www.overleaf.com/learn/latex/Hyperlinks} \cite{overleaf_link}.
+    \item[Lists] \cite{overleaf_list}.
+        \begin{itemize}
+            \item item 1
+                \begin{enumerate}
+                    \item item 1
+                \end{enumerate}
+        \end{itemize}
+    \item[Special characters] \ding{52}, \ding{56} \cite{pifont}.
+    \item[Code block] Embedd code as figure, as shown in \Cref{fig:embed_ef,fig:embed_pf}.
+        \begin{figure}[H]
+        \lstinputlisting[
+            language=Bash,
+            showspaces=false,
+            basicstyle=\ttfamily\footnotesize,
+            numbers=left,
+            numberstyle=\tiny,
+            commentstyle=\color{gray},
+        ]{../script/example.sh}
+        \caption{Embed entire script file.}
+        \label{fig:embed_ef}
+        \end{figure}
+        \begin{figure}[H]
+        \lstinputlisting[
+            linerange={3-4},
+            language=Bash,
+            showspaces=false,
+            basicstyle=\ttfamily\footnotesize,
+            numbers=left,
+            numberstyle=\tiny,
+            commentstyle=\color{gray},
+        ]{../script/example.sh}
+        \caption{Embed selected lines script file.}
+        \label{fig:embed_pf}
+        \end{figure}
+\end{description}
+
 \subsection{Figure}
 % - mermaid
 % - draw.io
@@ -29,11 +63,11 @@
 % - citation, citeauthor
 % - figure, table, section
 % - multi-reference syntax
-\subsection{Custom commands}
+\subsection{Custom commands and additional packages}
 % - renew reference name (Fig. Tab. Eq. Alg.)
 % - keywords, keywordscn
 % - add additional layer: paragraph
-\subsection{Additional packages}
+% - enquote
 % - nth
 % - xurl
 
