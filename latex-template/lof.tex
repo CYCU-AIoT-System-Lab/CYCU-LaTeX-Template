@@ -1,4 +1,18 @@
-\renewcommand{\listfigurename}{List\ of\ Figure}
-\listoffigures
-\addcontentsline{toc}{section}{List\ of\ Figure}
+%\renewcommand{\listfigurename}{List\ of\ Figure}
+%\listoffigures
+%\addcontentsline{toc}{section}{List\ of\ Figure}
+%\clearpage
+
+% require per-section counting, e.g. Fig 1-1 abcdef.....1
+\phantomsection
+\addcontentsline{toc}{section}{List\ of\ Figures}
+\renewcommand{\listfigurename}{List\ of\ Figures}
+%\listoffigures % doesn't show `Fig` at the start
+% https://tex.stackexchange.com/questions/155177/how-to-add-the-word-figure-to-the-list-of-figures
+{%
+    \let\oldnumberline\numberline%
+    \renewcommand{\numberline}{\figurename~\oldnumberline}%
+    \listoffigures%
+}
 \clearpage
+

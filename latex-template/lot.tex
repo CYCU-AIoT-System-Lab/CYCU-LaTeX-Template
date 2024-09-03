@@ -1,4 +1,15 @@
-\renewcommand{\listtablename}{List\ of\ Table}
-\addcontentsline{toc}{section}{List\ of\ Table}
-\listoftables
+%\renewcommand{\listtablename}{List\ of\ Table}
+%\addcontentsline{toc}{section}{List\ of\ Table}
+%\listoftables
+%\clearpage
+
+\phantomsection
+\addcontentsline{toc}{section}{List\ of\ Tables}
+\renewcommand{\listtablename}{List\ of\ Tables}
+%\listoftables
+{
+    \let\oldnumberline\numberline%
+    \renewcommand{\numberline}{\tablename~\oldnumberline}%
+    \listoftables%
+}
 \clearpage
