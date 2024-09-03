@@ -131,7 +131,6 @@ When displaying math symbols, they can be used inline like $a+b=c$. As shwon in 
     \label{eq:eq1}
 \end{equation}
 
-
 \begin{equation}
     \begin{aligned}
         a_1+b&=c \\
@@ -141,8 +140,34 @@ When displaying math symbols, they can be used inline like $a+b=c$. As shwon in 
     \end{aligned}
 \end{equation}
 
-
 \subsection{Algorithm}
+
+Algorithms can be expressed with basic usage of the \enquote{algorithm} environment, as shown in \autoref{alg:alg1}. If it requires math expressions, inline expression cna be mixed within, as shown in \autoref{alg:alg2}.
+
+\begin{algorithm}
+    \caption{Basic example of algorithm.}
+    \label{alg:alg1}
+    \begin{algorithmic}
+        \If{condition A}
+            \State state 1
+        \Else
+            \State state 2
+        \EndIf
+    \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+    \caption{Advance example of algorithm.}
+    \label{alg:alg2}
+    \begin{algorithmic}
+        \If{$a+b+c>\text{threshold}$}
+            \State $a+b+c$ is too large
+        \Else
+            \State Normal state
+        \EndIf
+    \end{algorithmic}
+\end{algorithm}
+
 \subsection{Citation}
 % - bib file
 % - get BibTeX information
