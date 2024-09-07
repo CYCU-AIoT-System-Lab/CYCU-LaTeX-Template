@@ -169,13 +169,15 @@ Algorithms can be expressed with basic usage of the \enquote{algorithm} environm
 \end{algorithm}
 
 \subsection{Citation}
-% - bib file
-% - get BibTeX information
-% - BibTeX template
-% - natbib
-% - special case: some characters makes multiple page from pp. to present as p.
+
+When citing materials, the related information should be recorded in \textbf{BibTeX} format and stored in the file \enquote{\texttt{reference.bib}} which is specified by command \enquote{\texttt{\textbackslash\{bibliography reference\}}} in \enquote{\texttt{reference.tex}}.
+
+Different categories of source can now be referenced in the document including \enquote{books}, \enquote{journals \& magazines}, and \enquote{conferences} \cite{10614682,10556316,9845195}. Their corresponding authors can be cited with \enquote{\citeauthor{10614682}}, \enquote{\citeauthor{10556316}}, \enquote{\citeauthor{9845195}}.
+
+In some special cases, special symbols like \enquote{–} from ACM Digital Library in the \enquote{pages} field making the compiled result display pages with \enquote{p.} instead of \enquote{pp.} \cite{10.1145/3634737.3665024}. These special cases need to fix manually \cite{10.1145/3634737.3665024mod}.
+
 \subsection{Hyperlink}
-% - citation, citeauthor
+% - citation, citeauthor, cref, autoref
 % - figure, table, section
 % - multi-reference syntax
 \subsection{Custom commands and additional packages}
