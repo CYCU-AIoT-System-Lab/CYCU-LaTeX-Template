@@ -22,6 +22,9 @@
 \counterwithin{table}{section}
 \counterwithin{equation}{section}
 
+% --- change object counting between Arabic and Roman ---
+%\renewcommand{\thetable}{\Roman{table}} % required for conference or other occasions
+
 % --- custom cmd for code ---
 % https://tex.stackexchange.com/questions/286094/insert-code-keywords-inline
 \usepackage{xcolor}
@@ -44,21 +47,32 @@
 \usepackage{algpseudocode}
 \newcommand{\algorithmautorefname}{Algorithm}
 
-% --- change autoref displaying text ---
+% --- change autoref displaying text (based on IEEE template) ---
 % https://tex.stackexchange.com/questions/142687/customize-of-autoref
-\renewcommand{\figureautorefname}{Fig.}
-%\renewcommand{\tableautorefname}{Tab.}
-%\renewcommand{\equationautorefname}{Eq.}
-%\renewcommand{\algorithmautorefname}{Alg.}
+\renewcommand{\figureautorefname}{Fig.} % the "." is to represent the abbreviation of Figure
+%\renewcommand{\tableautorefname}{Tab.} % default setting is fine
+\renewcommand{\equationautorefname}{} % except at the begining of the sentence "Equation" needs to be added manually.
+%\renewcommand{\algorithmautorefname}{Alg.} % default setting is fine
+\renewcommand{\sectionautorefname}{Chapter}
+\renewcommand{\subsectionautorefname}{Section}
+\renewcommand{\subsubsectionautorefname}{Subsection}
+\renewcommand{\paragraphautorefname}{Subsubsection}
 
 % --- multiple reference ---
 % https://tex.stackexchange.com/questions/20698/reference-multiple-subfloated-figures-using-refx-y-z-to-give-fig-1a-1b-1c-in
 % https://tex.stackexchange.com/questions/144759/how-to-modify-the-label-output-in-cleveref-and-varioref
 % https://ctan.mirror.twds.com.tw/tex-archive/macros/latex/contrib/cleveref/cleveref.pdf
 % https://tex.stackexchange.com/questions/381119/how-to-make-a-range-reference-use-an-en-dash
-\usepackage{cleveref}
+\usepackage{cleveref} % \Cref
 \newcommand{\crefrangeconjunction}{--} % use hyphon between 3 or more items like "Fig. 1.6-1.8" not "Fig. 1.6 to 1.8"
 \crefname{figure}{Fig.}{Fig.}
+%\crefname{table}{Tab.}{Tab.} % default setting is fine
+\crefname{equation}{}{}
+%\crefname{algorithm}{Alg.}{Alg.} % default setting is fine
+\crefname{section}{Chapter}{Chapter}
+\crefname{subsection}{Section}{Section}
+\crefname{subsubsection}{Subsection}{Subsection}
+\crefname{paragraph}{Subsubsection}{Subsubsection}
 
 % --- keyword command in abstrace ---
 % https://tex.stackexchange.com/questions/508107/lines-abstract-keyword

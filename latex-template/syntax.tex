@@ -2,7 +2,7 @@
 
 \subsection{Text}
 
-Display text in \textbf{bold}, \textit{italic}, \texttt{typewriter} \cite{overleaf_font}.
+Display text in \textbf{bold}, \textit{italic}, \texttt{typewriter} \cite{overleaf_font}. Note that underscores within \enquote{\texttt{\textbackslash texttt\{\}}} require to be escaped like \enquote{\texttt{a\textbackslash\_b}}.
 
 Embed website links with \href{https://www.overleaf.com/learn/latex/Hyperlinks}{displaying text}, \url{https://www.overleaf.com/learn/latex/Hyperlinks} \cite{overleaf_link}.
 
@@ -176,16 +176,32 @@ Different categories of source can now be referenced in the document including \
 
 In some special cases, special symbols like \enquote{–} from ACM Digital Library in the \enquote{pages} field making the compiled result display pages with \enquote{p.} instead of \enquote{pp.} \cite{10.1145/3634737.3665024}. These special cases need to fix manually \cite{10.1145/3634737.3665024mod}.
 
-\subsection{Hyperlink}
-% - citation, citeauthor, cref, autoref
-% - figure, table, section
-% - multi-reference syntax
 \subsection{Custom commands and additional packages}
+\label{sec_ccap}
+
+% - single referencing - figure, table, eq, alg, section
+The referencing to different sections within the document can be achieved with the following syntax: Fig. \ref{fig:embed_ef}, Table \ref{table:fig_tool}, \ref{eq:eq1} (equation), Algorithm \ref{alg:alg1}, Section \ref{sec_ccap}.
+
+% - autoref
+However, typing every single prefix of references is troublesome and error-prone. Another default syntax \enquote{\texttt{\textbackslash autoref}} can be used to achieve the same effect: \autoref{fig:embed_ef}, \autoref{table:fig_tool}, \autoref{eq:eq1} (equation), \autoref{alg:alg1}, \autoref{sec_ccap}. This requires the changes of \enquote{\texttt{autorefname}} in \texttt{main.tex}, and have the downside of unable to combine multiple references together.
+
+% - cref - multi-reference syntax
+To overcome the downside of \enquote{\texttt{\textbackslash autoref}}, \enquote{\texttt{\textbackslash Cref}} can be used instead: \Cref{fig:embed_ef,fig:embed_pf,table:fig_tool,fig:embed_pdf,table:tab1,table:tab2,table:tab3,eq:eq1,eq:eq2,alg:alg1,alg:alg2}. Note that escaping underscores used in \enquote{\texttt{\textbackslash Cref}} like \enquote{\texttt{\textbackslash\_}} will result in error.
+
 % - renew reference name (Fig. Tab. Eq. Alg.)
+For both \enquote{\texttt{\textbackslash autoref}} and \enquote{\texttt{\textbackslash Cref}}, their automatically added prefix can be adjusted with \enquote{\texttt{autorefname}} and \enquote{\texttt{\textbackslash crefname}} correspondingly, and are configured in \texttt{main.tex}.
+
 % - keywords, keywordscn
+Keywords for both English (\enquote{\texttt{\textbackslash keywords}}) and Chinese (\enquote{\texttt{\textbackslash keywordscn}}) can be achieved with the special commands set in \texttt{main.tex}. Example of these are shown in \texttt{abstract\_English.tex} and \texttt{abstract\_Chinese.tex}.
+
 % - add additional layer: paragraph
+The default layer of section are \enquote{\textbackslash section}, \enquote{\textbackslash subsection}, \enquote{\textbackslash subsubsection}, and \enquote{\textbackslash paragraph}. \enquote{\textbackslash paragraph} is modified in this template to fit and number correctly.
+
 % - enquote
 % - nth
 % - xurl
+
+Additional package \enquote{csquotes} is used for the \enquote{\texttt{\textbackslash enquote}} command (\enquote{quotes}). Package \enquote{nth} is used for the \enquote{\texttt{\textbackslash nth}} command (\nth{5}). Package \enquote{xurl} is used so that command \enquote{\texttt{\textbackslash href\{\}\{\}}} and \enquote{\texttt{\textbackslash url\{\}}} still can have line wrap (\url{https://this.is.a.super.long.link.that.does.not.link.to.anything.but.to.trigger.line.wrap}).
+
 
 \clearpage
